@@ -11,13 +11,21 @@ router = Router()
 
 client = Client()
 
+HELP_TEXT = """
+help
+"""
 
-
-
+START_TEXT = """
+hello
+"""
 
 @router.message(F.text == '/start')
 async def command_start(message: Message):
-    await message.answer(text='hello')
+    await message.answer(text=START_TEXT)
+
+@router.message(F.text == '/help')
+async def command_start(message: Message):
+    await message.answer(text=HELP_TEXT)
 
 @router.message()
 async def all_message(message: Message):
